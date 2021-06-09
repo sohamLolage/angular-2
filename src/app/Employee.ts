@@ -7,7 +7,7 @@ export class Employee{
         this.id=0;
         this.name="";
         this.email="";
-        this.dept="";
+        this.dept=" ";
 
     }
 }
