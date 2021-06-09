@@ -1,0 +1,63 @@
+<p>employee works!</p>
+<div class="container center">
+    <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="id" class="form-label">Employee Id</label>
+          <input type="number" class="form-control" id="id" aria-describedby="emailHelp"
+          name="id" [(ngModel)]="id">
+          
+        </div>
+        <div class="mb-3">
+          <label for="ename" class="form-label">Employee Name</label>
+          <input type="text" class="form-control" id="ename"
+          name="ename" [(ngModel)]="name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Employee Email</label>
+            <input type="email" class="form-control" id="email"
+            name="email" [(ngModel)]="email">
+          </div>
+          <div class="mb-3">
+            <label for="ename" class="form-label">Employee DepartMent</label>
+            <input type="text" class="form-control" id="text"
+            name="text" [(ngModel)]="dept">
+          </div>
+       <div *ngIf="!this.flag">
+        <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+       <div *ngIf="this.flag">
+        <button class="btn btn-primary" (click)="onUpdate()">Update</button>
+       </div>
+       
+      </form>
+</div>
+
+<div class="container" >
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of this.emp;  let i = index">
+                <th scope="row">{{emp.id}}</th>
+                <td>{{emp.name}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.dept}}</td>
+                <td><button type="button" class="btn btn-info"(click)="onEdit(i)">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="onDelete(emp)">Delete</button></td>
+            </tr>
+
+                 
+        </tbody>
+      </table>
+
+
+</div>

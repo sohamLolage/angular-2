@@ -1,0 +1,50 @@
+<table class="table table-striped container">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">Discount</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of this.product;  let i = index">
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.discount}}</td>
+            
+        </tr>
+
+             
+    </tbody>
+  </table>
+  <h1 class="class text-center">Discounted Items are listed below</h1>
+
+
+  <table class="table table-striped container">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">Discount</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody >
+    <ng-container *ngFor="let product of this.product">
+        <tr  *ngIf="this.product.discount">
+           
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.discount}}</td>
+        </tr>
+    </ng-container>
+    </tbody>
+  </table>
+
